@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ddd</title>
+    <script src="js/jquery-3.2.1.js"></script>
+</head>
+<body>
+<script>
+ /*   var oprateJson = {'devType':"pac"};
+
+ //查询length
+    $.post("/operatemongo/operate", {
+            "collectionname": "devices",
+            "opratetype": "queryLength",
+            'operateJson': oprateJson
+
+        },
+        function (data) {
+            console.log(JSON.stringify(data));
+
+        }, "json");*/
+
+//这是插入单条数据的方法
+ var oprateJson  ={
+     "devName": "test3", //设备名称
+     "devType": "humidifier", //设备类型
+     "location":"www",//设备位置
+     "devPro": { //设备属性
+         ast: "123", //送风温度
+         sdh: "23", //送风湿度
+         rat: "123", //回风温度
+         rah: "123", //回风湿度
+         ht: "123", //加热温度
+         curCC: "22", //当前冷量
+         maxCC: "22", //最大冷量
+         fans: "-1", //风机转数
+         maxNOR: "22", //最大转数
+         wvod: "-1", //水阀开度
+         wf: "22", //水流量
+         ope: "22", //运行效率
+         powercons: "22", //功耗
+         hstate: "22", //加湿器状态
+         openstate: "22" //开关机状态
+     }
+ };
+
+$.post("/operatemongo/operate", { "collectionname": "devices","opratetype":"insertOne",'operateJson':oprateJson },
+    function(result){
+         console.log(JSON.stringify(result)
+        );
+     }, "json");
+//这是多条数据插入的方法
+// var oprateJson = [{
+//     "devName": "test", //设备名称
+//     "devType": "pac", //设备类型
+//     "location":"www",//设备地址
+//     "devPro": { //设备属性
+//         ast: "123", //送风温度
+//         sdh: "23", //送风湿度
+//         rat: "123", //回风温度
+//         rah: "123", //回风湿度
+//         ht: "123", //加热温度
+//         curCC: "22", //当前冷量
+//         maxCC: "22", //最大冷量
+//         fans: "-1", //风机转数
+//         maxNOR: "22", //最大转数
+//         wvod: "-1", //水阀开度
+//         wf: "22", //水流量
+//         ope: "22", //运行效率
+//         powercons: "22", //功耗
+//         hstate: "22", //加湿器状态
+//         openstate: "22" //开关机状态
+//     }
+//
+// },
+//     {
+//         "devName": "test", //设备名称
+//         "devType": "pac", //设备类型
+//         "location":"www",//设备地址
+//         "devPro": { //设备属性
+//             ast: "123", //送风温度
+//             sdh: "23", //送风湿度
+//             rat: "123", //回风温度
+//             rah: "123", //回风湿度
+//             ht: "123", //加热温度
+//             curCC: "22", //当前冷量
+//             maxCC: "22", //最大冷量
+//             fans: "-1", //风机转数
+//             maxNOR: "22", //最大转数
+//             wvod: "-1", //水阀开度
+//             wf: "22", //水流量
+//             ope: "22", //运行效率
+//             powercons: "22", //功耗
+//             hstate: "22", //加湿器状态
+//             openstate: "22" //开关机状态
+//         }
+//     }];
+// $.post("/operatemongo/operate", { "collectionname": "devices","opratetype":"insertMany",'operateJson':oprateJson },
+//     function(result){
+//         console.log(JSON.stringify(result));
+//
+//     }, "json");
+
+//
+
+
+
+</script>
+</body>
+</html>

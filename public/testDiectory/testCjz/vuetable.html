@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vuetable</title>
+    <style>
+        #app {
+            font-family: 'Avenir', Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-align: center;
+            color: #2c3e50;
+            margin-top: 60px;
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css">
+    <script src="../../js/vue.js"></script>
+    <script src="../../js/vuetable-2.js"></script>
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="apple-touch-icon" type="image/png" sizes="144x144">
+    <link href="img/favicon.ico" rel="apple-touch-icon" type="image/png" sizes="114x114">
+    <link href="img/favicon.ico" rel="apple-touch-icon" type="image/png" sizes="72x72">
+    <link href="img/favicon.ico" rel="apple-touch-icon" type="image/png">
+    <link href="img/favicon.ico" rel="icon" type="image/png">
+    <link href="img/favicon.ico" rel="shortcut icon">
+    <!-- /Favicon -->
+
+    <!-- Global stylesheets -->
+    <link type="text/css" rel="stylesheet" href="../../lib/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="../../lib/css/animate.min.css">
+    <link type="text/css" rel="stylesheet" href="../../lib/css/moonlightdark-iconic.css">
+
+    <!-- /Global stylesheets -->
+
+    <!-- Page css -->
+    <link type="text/css" rel="stylesheet" href="../../lib/assets/icons/weather/weather-icons.min.css">
+    <link type="text/css" rel="stylesheet" href="../../lib/assets/icons/weather/weather-icons-wind.min.css">
+    <link rel="stylesheet" href="../../lib/assets/icons/climacon/styles.css">
+    <link rel="stylesheet" href="../../lib/assets/icons/climacon/climacon.css">
+    <link rel="stylesheet" href="../../commonjs/ctrl/jqxuague/jqx.base.css" type="text/css"/>
+</head>
+<body>
+<div id="app">
+    <div class="ui container">
+        <vuetable ref="vuetable"
+                  api-url="https://vuetable.ratiw.net/api/users"
+                  :fields="fields"
+                  pagination-path=""
+                  @vuetable:pagination-data="onPaginationData"
+        >
+            <template slot="actions" scope="props">
+                <div class="table-button-container">
+                    <button class="btn btn-info " @click="editRow(props.rowData)"><i class="fa fa-edit"></i> Edit</button>&nbsp;&nbsp;
+                    <button class="btn btn-danger" @click="deleteRow(props.rowData)"><i class="fa fa-remove"></i> Delete</button>&nbsp;&nbsp;
+                </div>
+            </template>
+        </vuetable>
+        <vuetable-pagination ref="pagination"
+                             @vuetable-pagination:change-page="onChangePage"
+        ></vuetable-pagination>
+    </div>
+</div>
+<script>
+    Vue.use(Vuetable);
+    new Vue({
+        el: '#app',
+        components:{
+            'vuetable-pagination': Vuetable.VuetablePagination
+        },
+        data: {
+            fields: ['name', 'email','birthdate','nickname','gender','__slot:actions']
+        },
+        computed:{
+            /*httpOptions(){
+              return {headers: {'Authorization': "my-token"}} //table props -> :http-options="httpOptions"
+            },*/
+        },
+        methods: {
+            onPaginationData (paginationData) {
+                this.$refs.pagination.setPaginationData(paginationData)
+            },
+            onChangePage (page) {
+                this.$refs.vuetable.changePage(page)
+            },
+            editRow(rowData){
+                alert("You clicked edit on"+ JSON.stringify(rowData))
+            },
+            deleteRow(rowData){
+                alert("You clicked delete on"+ JSON.stringify(rowData))
+            }
+        }
+    })
+</script>
+</body>
+</html>

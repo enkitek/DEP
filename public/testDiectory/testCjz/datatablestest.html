@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="example" class="display" cellspacing="0" width="100%">
+
+</table>
+<script src="../../lib/js/core/jquery/jquery.js"></script>
+<!-- Page scripts -->
+<script src="../../lib/js/plugins/tables/datatables/datatables.min.js"></script>
+<!-- /Page scripts -->
+<script>
+
+
+
+
+    $(document).ready(function () {
+        $('#example').dataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": {"url": "/operatemongo/queryDataForTables/devices/devType/pac/devName-devType", "type": "POST"},
+            "columns": [
+                { "data": "devName" },
+                { "data": "devType" },
+                { "data": "devPro.ast" },
+                { "data": "devPro.sdh" },
+                { "data": "devPro.rat" }
+            ]
+        });
+    });
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,184 @@
+
+ sidebar-kn {
+    background: #1C2B36;
+    padding-top: 10px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px
+}
+
+ sidebar-kn .list-title {
+    margin-top: 5px;
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    font-size: 11px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    color: rgba(134, 159, 177, 0.4)
+}
+
+ sidebar-kn .list-title:first-child {
+    margin-top: 0px;
+    border: none
+}
+
+ sidebar-kn li {
+    position: relative;
+    list-style: none ;
+ }
+
+ sidebar-kn li > a {
+    display: block;
+    position: relative
+}
+
+ sidebar-kn li > a > .label {
+    position: relative;
+    top: -2px;
+    left: 0
+}
+
+ sidebar-kn li ul {
+    padding-left: 0px;
+    display: none;
+    position: relative;
+    background: #131e25
+}
+
+ sidebar-kn li ul li {
+    position: relative
+}
+
+ sidebar-kn li ul li a {
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left: 40px;
+    color: #869FB1;
+    position: relative
+}
+
+ sidebar-kn li ul li a:before {
+    width: 2px;
+    height: 7px;
+    margin-top: 12px;
+    padding-right: 5px;
+    position: absolute;
+    top: 0px;
+    right: auto;
+    bottom: auto;
+    left: 20px;
+    border: 1px dotted rgba(134, 159, 177, 0.5);
+    background: #131e25;
+    content: "";
+    z-index: 1
+}
+
+ sidebar-kn li ul li a.active {
+    background: none;
+    color: #fff
+}
+
+ sidebar-kn li ul li a:hover,  sidebar-kn li ul li a:focus {
+    color: #fff
+}
+
+ sidebar-kn li ul li a .acc-icon {
+    top: 2px
+}
+
+ sidebar-kn li ul li li a {
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left: 50px
+}
+
+ sidebar-kn li ul li li li a {
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left: 60px
+}
+
+ sidebar-kn li ul li:last-child a {
+    margin-bottom: 5px
+}
+
+ sidebar-kn li.active > a {
+    color: #fff
+}
+
+ sidebar-kn li.active > a i {
+    color: #fff
+}
+
+ sidebar-kn > li.active > a {
+    background: #131e25;
+    color: #fff
+}
+
+ sidebar-kn > li.active > a i {
+    color: #fff
+}
+
+ sidebar-kn > li > a {
+    padding-top: 9px;
+    padding-right: 20px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+    color: #869FB1;
+    display: block;
+    vertical-align: middle;
+    position: relative
+}
+
+ sidebar-kn > li > a.active,  sidebar-kn > li > a:hover,  sidebar-kn > li > a:focus {
+    background-color: #131e25;
+    color: #fff
+}
+
+ sidebar-kn > li > a.active i,  sidebar-kn > li > a:hover i,  sidebar-kn > li > a:focus i {
+    color: #fff
+}
+
+ sidebar-kn > li > a > i {
+    margin-right: 6px;
+    position: relative;
+    top: -2px;
+    text-align: left;
+    color: #869FB1
+}
+
+ sidebar-kn > li > a.acc-parent.active {
+    background-color: #131e25;
+    color: #fff
+}
+
+ sidebar-kn > li > a.acc-parent.active i {
+    color: #fff
+}
+
+ sidebar-kn > li > ul {
+    padding-top: 3px;
+    padding-right: 0px;
+    padding-bottom: 5px;
+    padding-left: 0px;
+    box-shadow: inset 0 7px 10px -7px transparent
+}
+
+ sidebar-kn > li > ul:after {
+    position: absolute;
+    top: 0;
+    left: 23px;
+    width: 0;
+    height: 100%;
+    border-left: 1px dotted rgba(134, 159, 177, 0.5);
+    content: ""
+}
+
+ sidebar-kn > li > ul li a.active {
+    background: none
+}
