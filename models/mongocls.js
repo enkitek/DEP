@@ -57,7 +57,7 @@ exports.OperatToMongoDB = function (database, collection, operation, operateJson
 
             case "modify": {
                 //console.log("start");
-                findDocuments(db, collection, operateJson, callback);
+                updateDocument(db, collection, operateJson,soperateJson, callback);
 
                 break;
             }
@@ -342,85 +342,20 @@ var findDocumentForTable = function (db, collection, operateJson, oprateJsonAppe
 
 }
 
-
-var findLastOneDocument = function (db, collection, operateJson, soperateJson, callback) {
+var updateDocument = function (db, collection, operateJson, oprateJsonAppend, callback) {
+    var rresult = {};
     // Get the documents collection
     var collection = db.collection(collection);
-    // Find some documents
-    var sortjson = {};
-    sortjson[soperateJson] = -1;
-
-    collection.find(operateJson).sort(sortjson).limit(1).toArray(function (err, docs) {
+// Update multiple documents
+    collection.updateMany(operateJson,oprateJsonAppend, function (err, r) {
         if (err) {
             console.log(err);
             callback(err);
         }
-
-        callback(docs);
-    });
-}
-
-
-var findLastTimeOneDocument = function (db, collection, operateJson, callback) {
-    // Get the documents collection
-    var collection = db.collection(collection);
-    // Find some documents
-    collection.find(operateJson).sort({"curtime": -1}).limit(1).toArray(function (err, docs) {
-        if (err) {
-            console.log(err);
-            callback(err);
-        }
-        //console.log("Found the following records");
-        // console.dir(docs);
-        callback(docs);
-    });
-}
-
-var findOneXSDocument = function (db, collection, operateJson, callback) {
-    // Get the documents collection
-    var collection = db.collection(collection);
-    // Find some documents
-    collection.find(operateJson).sort({"starttime": -1}).limit(1).toArray(function (err, docs) {
-        if (err) {
-            console.log(err);
-            callback(err);
-        }
-        //console.log("Found the following records");
-        // console.dir(docs);
-        callback(docs);
-    });
-}
-
-
-var findOneQYDocument = function (db, collection, operateJson, callback) {
-    // Get the documents collection
-    var collection = db.collection(collection);
-    // Find some documents
-    collection.find(operateJson).sort({"curdata": -1}).limit(1).toArray(function (err, docs) {
-        if (err) {
-            console.log(err);
-            callback(err);
-        }
-        //console.log("Found the following records");
-        // console.dir(docs);
-        callback(docs);
-    });
-}
-
-
-var findOneDocument = function (db, collection, operateJson, callback) {
-    // Get the documents collection
-    var collection = db.collection(collection);
-    // Find some documents
-    collection.find(operateJson).sort({"_id": -1}).toArray(function (err, docs) {
-        if (err) {
-            console.log(err);
-            callback(err);
-        }
-        //console.log("Found the following records");
-        // console.dir(docs);
-        callback(docs);
-    });
+        rresult.data = r;
+        rresult.status = 1;
+        callback(rresult);
+    })
 }
 
 
